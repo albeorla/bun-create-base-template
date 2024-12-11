@@ -1,0 +1,37 @@
+{
+  "name": "project-template",
+  "module": "index.ts",
+  "type": "module",
+  "scripts": {
+    "start": "bun run index.ts",
+    "test": "bun test",
+    "lint": "eslint .",
+    "format": "prettier --write .",
+    "prepare": "husky install"
+  },
+  "devDependencies": {
+    "@types/bun": "latest",
+    "@typescript-eslint/eslint-plugin": "^latest",
+    "@typescript-eslint/parser": "^latest",
+    "eslint": "^latest",
+    "husky": "^8.0.0",
+    "lint-staged": "^latest",
+    "prettier": "^latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  },
+  "lint-staged": {
+    "*.{ts,tsx,json,md,yml}": [
+      "prettier --write",
+      "eslint --fix"
+    ]
+  },
+  "bun-create": {
+    "postinstall": [
+      "echo 'Setting up your new Bun project...'",
+      "bun install"
+    ],
+    "start": "bun run start"
+  }
+}
